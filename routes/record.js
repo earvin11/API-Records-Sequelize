@@ -7,12 +7,15 @@ const {
   updateRecord,
   deleteRecord,
 } = require("../controllers/records.js");
+const createRecordMiddleware = require('../middlewares/create-record.middleware.js');
 
 const router = express.Router();
 
 router.get("/", getRecords);
 router.get("/:id", getRecord);
-router.post("/", createRecord);
+router.post("/",[
+  createRecordMiddleware
+],createRecord);
 router.patch("/:id", updateRecord);
 router.delete("/:id", deleteRecord);
 
