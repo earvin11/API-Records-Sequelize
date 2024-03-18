@@ -27,7 +27,6 @@ const RecordItem = require("../models/recordItem.js");
   
   try {
     const { name, email } = req.body;
-    console.log(req.body)
     const persona = {
       name: name,
       email: email
